@@ -17,13 +17,13 @@ $token = json_decode($token);
 print_r($token);
 
 $curl = curl_init();
-$price_url = "http://".$server_socket."/pricelist";
+$price_url = "http://".$server_socket."/api/pricelist";
 $authorization = "Authorization: Bearer ".$token->token;
 curl_setopt($curl, CURLOPT_URL, $price_url);
 curl_setopt($curl, CURLOPT_HTTPHEADER, [$authorization]);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 $data = curl_exec($curl);
 curl_close($curl);
-//$data = json_decode($data);
+$data = json_decode($data);
 print_r($data);
 ?>
